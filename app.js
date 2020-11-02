@@ -17,17 +17,18 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '12345',
-  database: 'menagerie'
+  database: 'flow_quotes'
 });
 
 app.get('/', (req, res) => {
-  const sql = 'SELECT * FROM `pet`';
+  const sqlQuote = 'SELECT * FROM `quote`';
+  let quotes;
 
-  connection.query(sql, (error, results) => {
+  // Retrieve records from table "quote"
+  connection.query(sqlQuote, (error, results) => {
     if (error) throw error;
 
-    // res.send(results[0].name)
-    return res.render('index', { results });
+    return res.render('index', { quotes: results });
   });
 
   return;

@@ -23,21 +23,25 @@
   </header>
 
   <section class="quotes" id="quote-list">
-    {% for result in results %}
-    <div class="quote">
-      <img class="img-quote" src="./images/monark.jpg" alt="Monark">
+    {% for quote in quotes %}
+      <div class="quote">
+        <img 
+          class="img-quote" 
+          src="./images/photos/{{ quote.filename }}.{{ quote.extension }}" 
+          alt="Nome"
+        >
 
-      <div class="quote-body">
-        <p>
-          {{ result.birth }}
-        </p>
+        <div class="quote-body">
+          <p>
+            {{ quote.quote }}
+          </p>
 
-        <div class="quote-desc">
-          <div class="item">- {{ result.owner }}</div>
-          <div class="item">{{ result.name }}</div>
+          <div class="quote-desc">
+            <div class="item">- Nome</div>
+            <div class="item">episódio #{{ quote.episode }}</div>
+          </div>
         </div>
       </div>
-    </div>
     {% endfor %}
 
     <!-- <div class="quote">
