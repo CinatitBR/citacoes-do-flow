@@ -5,6 +5,9 @@
   "repository": "git@github.com:CinatitBR/citacoes-do-flow.git",
   "author": "CinatitBR <cinatit.igor.santos@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "yarn nodemon app.js"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "mysql": "^2.18.1",
