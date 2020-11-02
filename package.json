@@ -1,0 +1,15 @@
+{
+  "name": "citacoes-do-flow",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:CinatitBR/citacoes-do-flow.git",
+  "author": "CinatitBR <cinatit.igor.santos@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "nunjucks": "^3.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
