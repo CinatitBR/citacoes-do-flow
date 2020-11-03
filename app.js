@@ -20,18 +20,33 @@ const connection = mysql.createConnection({
   database: 'flow_quotes'
 });
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
   const sqlQuote = 'SELECT * FROM `quote`';
+
   let quotes;
+  let photo_id;
 
-  // Retrieve records from table "quote"
-  connection.query(sqlQuote, (error, results) => {
-    if (error) throw error;
+  const promise = new Promise((resolve, reject) => {
+    connection.query(sqlQuote, (error, results) => {
+      if (error) reject(error);
 
-    return res.render('index', { quotes: results });
+      return resolve(results);
+    });
   });
 
-  return;
+  await promise
+    .then(value => {
+      quotes = value;
+      photo_id = quotes[0].photo_id;
+    })
+    .catch(error => {
+      throw error;
+    });
+    
+  console.log(photo_id);
+  return res.send(quotes);
+  
+  // return res.render('index', { quotes });
 });
 
 const PORT = process.env.PORT || 3000;
