@@ -21,32 +21,28 @@ const connection = mysql.createConnection({
 });
 
 app.get('/', async (req, res) => {
-  const sqlQuote = 'SELECT * FROM `quote`';
+  const getData = sql => {
+    return new Promise((resolve, reject) => {
+      connection.query(sql, (error, results) => {
+        if (error) reject(error);
+  
+        resolve(results);
+      });
+    }); 
+  }
 
   let quotes;
-  let photo_id;
-
-  const promise = new Promise((resolve, reject) => {
-    connection.query(sqlQuote, (error, results) => {
-      if (error) reject(error);
-
-      return resolve(results);
-    });
-  });
-
-  await promise
+  const sqlQuote = 'SELECT * FROM quote';
+  
+  await getData(sqlQuote)
     .then(value => {
       quotes = value;
-      photo_id = quotes[0].photo_id;
     })
     .catch(error => {
       throw error;
     });
-    
-  console.log(photo_id);
-  return res.send(quotes);
   
-  // return res.render('index', { quotes });
+  return res.render('index', { quotes });
 });
 
 const PORT = process.env.PORT || 3000;
