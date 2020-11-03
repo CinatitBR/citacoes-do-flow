@@ -31,18 +31,28 @@ app.get('/', async (req, res) => {
     }); 
   }
 
-  let quotes;
+  // Retrieve records from "quote" table
+  let quoteRecords;
   const sqlQuote = 'SELECT * FROM quote';
   
   await getData(sqlQuote)
-    .then(value => {
-      quotes = value;
-    })
+    .then(value => quoteRecords = value)
     .catch(error => {
       throw error;
     });
   
-  return res.render('index', { quotes });
+  // Retrieve records from "photo" table
+  let photo_id = quoteRecords[0].photo_id;
+  let photoRecords;
+  const sqlPhotos = `SELECT * FROM photo WHERE photo_id = ${photo_id}`;
+
+  await getData(sqlPhotos)
+    .then(value => photoRecords = value)
+    .catch(error => {
+      throw error;
+    }); 
+  
+  return res.render('index', { photoRecords });
 });
 
 const PORT = process.env.PORT || 3000;
