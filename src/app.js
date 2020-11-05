@@ -1,25 +1,26 @@
 const express = require('express');
-const routes = require('./routes');
 const nunjucks = require('nunjucks');
-// const mysql = require('mysql');
+const routes = require('./routes');
 
 const app = express();
 
-app.use(express.static('public')); 
-app.set('view engine', 'njk');
-
-nunjucks.configure('src/views', {
-  autoescape: true,
-  express: app
-});
-
-// Connecting to MySQL database
+// // Connect to MySQL
 // const connection = mysql.createConnection({
 //   host: 'localhost',
 //   user: 'root',
 //   password: '12345',
 //   database: 'flow_quotes'
 // });
+
+// Set static directory
+app.use(express.static('public'));
+
+// Set view engine
+app.set('view engine', 'njk');
+nunjucks.configure('src/views', {
+  autoescape: true,
+  express: app
+});
 
 app.use('/', routes);
 
