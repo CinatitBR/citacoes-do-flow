@@ -23,26 +23,26 @@
   </header>
 
   <section class="quotes" id="quote-list">
-    {# {% for photo in photoRecords %} #}
+    {% for quote in quoteRecords %}
       <div class="quote">
         <img 
-          class="img-quote" 
-          src="./images/photos/monark.jpg" 
-          alt="Nome"
+          class="quote-img" 
+          src="./images/photos/{{ quote.photo_filename }}.{{ quote.photo_ext }}" 
+          alt="{{ quote.author }}"
         >
 
         <div class="quote-body">
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem cupiditate repudiandae sunt minus nihil minima, vitae quis architecto veniam quia incidunt assumenda quam maxime accusantium repellendus magnam! Odit, deserunt earum?
+            {{ quote.quote_text }}
           </p>
 
           <div class="quote-desc">
-            <div class="item">- haha</div>
-            <div class="item">episódio #hihi</div>
+            <div class="item">- {{ quote.author }}</div>
+            <div class="item">episódio #{{ quote.episode }}</div>
           </div>
         </div>
       </div>
-    {# {% endfor %} #}
+    {% endfor %}
 
     <!-- <div class="quote">
       <img class="img-quote" src="./images/igor.jpg" alt="Igor">

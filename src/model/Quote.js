@@ -9,48 +9,25 @@ const connection = mysql.createConnection({
 
 const Quote = function () {}
 
-Quote.prototype.getRecords = async () => {
-  let sql = `
-    SELECT quote_text, episode, timestamp, photo_id, author_id 
-    FROM quote;
+Quote.prototype.getRecords = async (callback) => {
+  let sql = '';
+  
+  sql = `
+    SELECT quote_text, episode, timestamp, 
+    photo_filename, photo_ext,
+    author
+    FROM quote
+    INNER JOIN photo
+    ON quote.photo_id = photo.photo_id
+    INNER JOIN author
+    ON quote.author_id = author.author_id;
   `;
 
-  let promise = new Promise((resolve, reject) => {
-    connection.query(sql, (error, results) => {
-      if (error) reject(error);
-  
-      resolve(results);
-    });
-  });
+  connection.query(sql, (error, results) => {
+    if (error) `Erro no query: ${error}`;
 
-  promise
-    .then(results => {
-      const { quote_text, episode, timestamp, photo_id, author_id } = results;
-      return { quote_text, episode, timestamp, photo_id, author_id };
-    })
-    .catch(error => {
-      throw error;
-    });
+    callback(results);
+  });
 }
 
 module.exports = Quote;
-
-// Preciso pegar o "filename" e o "extension" da tabela photo
-
-// Connecting to MySQL database
-// const connection = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: '12345',
-//   database: 'flow_quotes'
-// });
-
-// const getData = sql => {
-//   return new Promise((resolve, reject) => {
-//     connection.query(sql, (error, results) => {
-//       if (error) reject(error);
-
-//       resolve(results);
-//     });
-//   }); 
-// }
