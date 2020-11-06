@@ -51,10 +51,13 @@ header h2 span {
   flex-direction: column;
 }
 
-.img-quote {
-  max-width: 140px;
-  border-radius: 15px;
+.quote-img {
   margin: 0 auto;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 15px;
+  max-width: 125px;
+  height: 120px;
 }
 
 /* QUOTE BODY */
@@ -133,18 +136,6 @@ header h2 span {
     transition: 300ms;
   }
 
-  .quote:hover {
-    transform: translateY(-14px);
-    transition: 300ms;
-    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 15px 0 0 15px;
-  }
-
-  .img-quote {
-    margin: 0;
-    max-width: 150px;
-  }
-
   /* QUOTE BODY */
   .quote-body {
     padding: 8px;
@@ -209,5 +200,12 @@ header h2 span {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0px 30px;
+  }
+
+  .quote:hover {
+    transform: translateY(-14px);
+    transition: 300ms;
+    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px 0 0 15px;
   }
 }
