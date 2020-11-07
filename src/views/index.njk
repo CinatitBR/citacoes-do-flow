@@ -8,6 +8,7 @@
     rel="stylesheet"
   > 
   <link rel="stylesheet" href="./style.css">
+  <script src="./scripts.js" defer></script>
   <title>Citações do Flow</title>
 </head>
 <body>
@@ -23,7 +24,27 @@
   </header>
 
   <section class="quotes" id="quote-list">
-    {% for quote in quoteRecords %}
+    {% for record in records %}
+      <div class="quote">
+        <img 
+          class="quote-img" 
+          src="./images/photos/monark.jpg" 
+          alt="Nome"
+        >
+
+        <div class="quote-body">
+          <p>
+            {{ record.body }}
+          </p>
+
+          <div class="quote-desc">
+            <div class="item">- {{ record.title }}</div>
+            <div class="item">episódio</div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    {# {% for quote in quoteRecords %}
       <div class="quote">
         <img 
           class="quote-img" 
@@ -42,7 +63,7 @@
           </div>
         </div>
       </div>
-    {% endfor %}
+    {% endfor %} #}
 
     <!-- <div class="quote">
       <img class="img-quote" src="./images/igor.jpg" alt="Igor">
@@ -58,71 +79,8 @@
         </div>
       </div>
     </div>
-
-    <div class="quote">
-      <img class="img-quote" src="./images/monark.jpg" alt="Monark">
-
-      <div class="quote-body">
-        <p>
-          “Be who you are and say what you feel, because those who mind don't 
-          matter, and those who matter don't mind.”  
-        </p>
-
-        <div class="quote-desc">
-          <div class="item">- Monark</div>
-          <div class="item">episódio #183, em 1:45:00</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="quote">
-      <img class="img-quote" src="./images/monark.jpg" alt="Monark">
-
-      <div class="quote-body">
-        <p>
-          “You've gotta dance like there's nobody watching,
-          Love like you'll never be hurt,
-          Sing like there's nobody listening,
-          And live like it's heaven on earth.
-          You've gotta dance like there's nobody watching.
-        </p>
-
-        <div class="quote-desc">
-          <div class="item">- Monark</div>
-          <div class="item">episódio #183, em 1:45:00</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="quote">
-      <img class="img-quote" src="./images/monark.jpg" alt="Monark">
-
-      <div class="quote-body">
-        <p>
-          “In three words I can sum up everything I've learned about life: it goes on.”  
-        </p>
-
-        <div class="quote-desc">
-          <div class="item">- Monark</div>
-          <div class="item">episódio #183, em 1:45:00</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="quote">
-      <img class="img-quote" src="./images/igor.jpg" alt="Igor">
-
-      <div class="quote-body">
-        <p>
-          “Be yourself; everyone else is already taken.” 
-        </p>
-
-        <div class="quote-desc">
-          <div class="item">- Igor</div>
-          <div class="item">episódio #183, em 1:45:00</div>
-        </div>
-      </div>
-    </div> -->
+    !-->  
   </section>
+  <div id="infinite-scroll-trigger"></div>
 </body>
-</html>
+</html> 
