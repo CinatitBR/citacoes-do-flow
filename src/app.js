@@ -4,18 +4,10 @@ const routes = require('./routes');
 
 const app = express();
 
-// // Connect to MySQL
-// const connection = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: '12345',
-//   database: 'flow_quotes'
-// });
-
 // Set static directory
 app.use(express.static('public'));
 
-// Set view engine
+// Set template engine
 app.set('view engine', 'njk');
 nunjucks.configure('src/views', {
   autoescape: true,

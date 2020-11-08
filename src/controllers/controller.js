@@ -1,5 +1,4 @@
-const Quote = require('../model/Quote');
-
+const Quote = require('../models/Quote');
 
 exports.renderIndexPage = (req, res) => {
   const limit = 24;
