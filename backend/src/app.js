@@ -4,17 +4,18 @@ const routes = require('./routes');
 
 const app = express();
 
-// Set static directory
+// Static directory
 app.use(express.static('public'));
 
-// Set template engine
+// Template engine
 app.set('view engine', 'njk');
 nunjucks.configure('src/views', {
   autoescape: true,
   express: app
 });
 
-app.use('/', routes);
+// Use routes from routes file
+app.use(routes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
