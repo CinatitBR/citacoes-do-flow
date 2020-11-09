@@ -1,4 +1,3 @@
-/* SMALL SCREENS */
 /* QUOTE */
 .quote {
   max-width: 100vmin;
@@ -39,7 +38,6 @@
 
 /* QUOTE DESC */
 .quote-body__desc {
-  padding: 2px 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
