@@ -6,7 +6,8 @@ const App = () => {
   return (
     <div>
       <Header />
-      <section className="quotes" id="quote-list">
+
+      <section className="quote-list">
         <Quote name="Igor" />
       </section>
     </div>

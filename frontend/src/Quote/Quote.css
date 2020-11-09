@@ -1,74 +1,65 @@
 /* SMALL SCREENS */
-/* QUOTES */
-.quotes {
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 /* QUOTE */
 .quote {
-  max-width: 400px;
+  max-width: 100vmin;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
 
+.quote:hover {
+  transform: translateY(-14px);
+  transition: 300ms;
+  box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 15px 0 0 15px;
+}
+
+/* QUOTE IMG */
 .quote-img {
   margin: 0 auto;
   object-fit: cover;
-  object-position: center center;
+  object-position: center;
   border-radius: 15px;
-  max-width: 125px;
-  height: 120px;
+  width: 18vmin;
+  height: 18vmin;
 }
 
 /* QUOTE BODY */
 .quote-body {
-  padding: 10px 0;
+  width: 100%;
+  font-size: 2vmin;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
-.quote-body p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 18px;
+.quote-body .text {
+  text-align: justify;
   color: #686767;
 } 
 
 /* QUOTE DESC */
-.quote-desc {
-  padding: 4px 0;
+.quote-body__desc {
+  padding: 2px 0;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-}
 
-.quote-desc .item {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: bold;
   color: #C5A25D;
 }
 
-.quote-desc .item:first-child {
+.quote-body__desc .item:hover {
+  text-decoration: underline;
+}
+
+.quote-body__desc .item:first-child {
   margin-right: 8px;
 }
 
 /* MEDIUM SCREENS */
 @media only screen and (min-width: 700px) {
-  /* Quotes */
-  .quotes {
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   /* QUOTE */
   .quote {
-    min-width: 600px;
     margin-bottom: 50px;
     display: flex;
     flex-direction: row;
@@ -77,47 +68,9 @@
 
   /* QUOTE BODY */
   .quote-body {
-    padding: 8px;
-    width: 100%;
+    padding: 4px;
     display: flex;  
     flex-direction: column;
     justify-content: space-between;
-  }
-
-  .quote-body p {
-    font-size: 15px;
-  } 
-
-  /* QUOTE DESC */
-  .quote-desc {
-    padding: 0;
-  }
-
-  .quote-desc .item {
-    font-size: 14px;
-  }
-
-  .quote-desc .item:hover {
-    text-decoration: underline;
-  }
-}
-
-/* LARGE SCREENS */
-@media only screen and (min-width: 1280px) {
-  /* QUOTES */
-  .quotes {
-    max-width: 2560px;
-    margin: 0 auto;
-    padding: 10px 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0px 30px;
-  }
-
-  .quote:hover {
-    transform: translateY(-14px);
-    transition: 300ms;
-    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 15px 0 0 15px;
   }
 }
