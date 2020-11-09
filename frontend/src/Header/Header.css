@@ -1,0 +1,82 @@
+/* SMALL SCREENS */
+header {
+  padding: 25px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+header h1 {
+  font-family: 'Merienda One', cursive;
+  font-size: 28px;
+  letter-spacing: 4px;
+  color: #2E2D2D;
+}
+
+header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #5F5C5C;
+}
+
+header h2 span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #535353;
+}
+
+/* MEDIUM SCREENS */
+@media only screen and (min-width: 700px) {
+  header {
+    max-width: 2560px;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header .wrapper {
+    display: inline-block;
+  }
+
+  header h1 {
+    font-size: 50px;
+  }
+
+  header h2 {
+    font-size: 20px;
+  }
+  
+  header h2 span {
+    font-size: 25px;
+  }
+}
+
+/* LARGE SCREENS */
+@media only screen and (min-width: 1280px) {
+  header {
+    padding: 100px 40px 50px;
+    margin: 0 auto;
+  }
+
+  header .wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  header h1 {
+    font-size: 60px;
+    margin-right: 15px;
+  }
+
+  header h2 {
+    font-size: 24px;
+  }
+
+  header h2 span {
+    font-size: 36px;
+  }
+}
