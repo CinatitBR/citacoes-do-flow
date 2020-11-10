@@ -1,6 +1,6 @@
 const Quote = require('../models/Quote');
 
-exports.renderIndexPage = (req, res) => {
+exports.getQuotes = (req, res) => {
   const limit = 24;
   let offset = 0;
 
@@ -9,8 +9,6 @@ exports.renderIndexPage = (req, res) => {
   Quote.getRecords(params, results => {
     const records = results;
 
-    offset += 24;
-    
-    return res.render('index', { records });
+    return res.json(records);
   });
 }

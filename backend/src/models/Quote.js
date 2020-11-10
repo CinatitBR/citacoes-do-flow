@@ -1,4 +1,4 @@
-const db = require('../config/db');
+const db = require('../db');
 
 const Quote = {}
 
@@ -35,10 +35,6 @@ Quote.getRecords = (params, callback) => {
 
   //   callback(results);
   // });
-}
-
-Quote.getCount = () => {
-  let sql = ``;
 }
 
 module.exports = Quote;

@@ -3,6 +3,6 @@ const controller = require('./controllers/controller');
 
 const router = express.Router();
 
-router.get('/', controller.renderIndexPage);
+router.get('/getQuotes', controller.getQuotes);
 
 module.exports = router;
